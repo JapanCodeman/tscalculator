@@ -1,0 +1,7 @@
+body {
+  background-color: black;
+}
+
+@import './calculator-body.scss';
+@import './calculator-button.scss';
+@import './calculator-screen.scss';

@@ -1,0 +1,18 @@
+.calculator-body {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: 900px;
+  background-color: gray;
+  border-radius: 25px;
+
+  &__button-wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 500px;
+    
+  }
+}

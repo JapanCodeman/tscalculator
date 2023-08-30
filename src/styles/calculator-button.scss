@@ -1,0 +1,12 @@
+button {
+    height: 150px;
+    width: 150px;
+    border-radius: 90px;
+}
+
+.calculator-button {
+
+  &__value {
+    font-size: 48px;
+  }
+}
