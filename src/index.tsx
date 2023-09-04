@@ -1,13 +1,24 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 
 import CalculatorBody from "./components/calculatorBody";
 import './styles/index.scss';
+import { createContext, useState } from "react";
 
-const App = () => {
+export default function App() {
+
+  interface calculatorOutputTypes {
+    output: number,
+    operator?: string
+  }
+
+  const CalculatorOutput = createContext<calculatorOutputTypes | undefined>(undefined)
+  const [output, setOutput] = useState(0)
+
   return (
     <div className='calculator'>
-      <CalculatorBody />
+      <CalculatorOutput.Provider value={{output: output}}>
+        <CalculatorBody />
+      </CalculatorOutput.Provider>
     </div>
   )
 }

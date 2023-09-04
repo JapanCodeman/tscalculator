@@ -2,7 +2,7 @@ import { MouseEvent } from 'react';
 
 interface CalculatorButtonProps {
   name: string,
-  value: number
+  value: number | '.'
 }
 
 const CalculatorButton: React.FC<CalculatorButtonProps> = ({name, value}) => {

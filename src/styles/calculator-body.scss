@@ -1,6 +1,9 @@
 .calculator-body {
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   width: 700px;
   height: 900px;
   background-color: gray;
@@ -8,11 +11,11 @@
 
   &__button-wrapper {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column: 1 / span 4;
     justify-items: center;
     align-items: center;
     height: 500px;
-    
   }
 }
