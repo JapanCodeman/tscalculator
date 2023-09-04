@@ -11,14 +11,10 @@ export default function App() {
     operator?: string
   }
 
-  const CalculatorOutput = createContext<calculatorOutputTypes | undefined>(undefined)
-  const [output, setOutput] = useState(0)
 
   return (
     <div className='calculator'>
-      <CalculatorOutput.Provider value={{output: output}}>
         <CalculatorBody />
-      </CalculatorOutput.Provider>
     </div>
   )
 }

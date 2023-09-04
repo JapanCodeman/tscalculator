@@ -1,15 +1,16 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, useContext, useState } from 'react';
 
 interface CalculatorButtonProps {
   name: string,
-  value: number | '.'
+  value: string
 }
 
 const CalculatorButton: React.FC<CalculatorButtonProps> = ({name, value}) => {
 
+
   const handleMouseEvent = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(e.currentTarget.value)
+    // console.log(e.currentTarget.value)
   };
 
   return (
