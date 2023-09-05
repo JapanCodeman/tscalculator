@@ -1,10 +1,12 @@
-import { useContext } from "react";
+interface CalculatorScreenProps {
+  display: number
+}
 
-function CalculatorScreen() {
+function CalculatorScreen({display}: CalculatorScreenProps) {
 
   return (
     <div className='calculator-screen'>
-      <p className='calculator-screen__output'>{0}</p>
+      <p className='calculator-screen__output'>{display}</p>
     </div>
   )
 }
