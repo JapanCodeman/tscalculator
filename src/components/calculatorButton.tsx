@@ -1,17 +1,19 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, useContext } from 'react';
+import { CalculatorContext } from './context';
 
 interface CalculatorButtonProps {
   name: string,
   value: string | number,
-  handleSetDisplayValue: (e: number) => void
 }
 
-const CalculatorButton: React.FC<CalculatorButtonProps> = ({name, value, handleSetDisplayValue}) => {
-
+const CalculatorButton: React.FC<CalculatorButtonProps> = ({name, value}) => {
+  
+  const { setDisplayValue } = useContext(CalculatorContext)
 
   const handleMouseEvent = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    handleSetDisplayValue(Number(e.currentTarget.value))
+    if (setDisplayValue !== undefined)
+    setDisplayValue(Number(e.currentTarget.value))
   };
 
   return (
