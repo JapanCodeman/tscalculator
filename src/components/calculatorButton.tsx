@@ -8,13 +8,23 @@ interface CalculatorButtonProps {
 
 const CalculatorButton: React.FC<CalculatorButtonProps> = ({name, value}) => {
   
-  const { setDisplayValue } = useContext(CalculatorContext)
+  const { displayValue, setDisplayValue } = useContext(CalculatorContext)
 
   const handleMouseEvent = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (setDisplayValue !== undefined)
-    setDisplayValue(Number(e.currentTarget.value))
-  };
+    let inputNumber = e.currentTarget.value;
+    if (setDisplayValue !== undefined) {
+      if (displayValue === 0) {
+        setDisplayValue(Number(e.currentTarget.value))
+      } else if (displayValue !== 0) {
+        let outputValue = String(displayValue) + String(inputNumber) 
+        setDisplayValue(Number(outputValue))
+      }
+    }
+      else {
+        console.warn("setDisplayValue is undefined")
+      }
+    }
 
   return (
     <div className='calculator-button'>
