@@ -1,4 +1,5 @@
-import { MouseEvent } from "react"
+import { MouseEvent, useContext } from "react"
+import { CalculatorContext } from "./context"
 
 interface CalculatorFunctionButtonProps {
   name: string,
@@ -7,9 +8,17 @@ interface CalculatorFunctionButtonProps {
 
 const CalculatorFunctionButton: React.FC<CalculatorFunctionButtonProps> = ({ name, operator }) => {
 
+  const { displayValue, setDisplayValue } = useContext(CalculatorContext)
+
   const handleMouseEvent = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(e.currentTarget.value)
+    if (setDisplayValue !== undefined) {
+      if (e.currentTarget.value === 'C') {
+        setDisplayValue(0)
+      } else {
+        console.warn("setDisplayValue is undefined")
+      }
+    }
   };
 
   return (
